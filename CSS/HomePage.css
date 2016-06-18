@@ -1,0 +1,42 @@
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#header {
+    background-color: cornsilk;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+}
+
+.TopLogo{
+    font-size: 2em;
+}
+
+#HomeWorkInput{
+    background-color: green;
+    float: left;
+    height: 100vh;
+    width: 30%;
+}
+
+#HomeWorkCalander{
+    float: left;
+    background-color: blue;
+    width: 70%;
+    height: auto;
+}
+
+.CalanderDay{
+    border: 1px solid black; 
+    background-color: white;
+    float: left;
+    width: 150px;
+    height: 150px;
+}
+
+.Date{
+    text-align: center;
+    background-color: green;
+}
