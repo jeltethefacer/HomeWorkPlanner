@@ -35,9 +35,9 @@ include("inc_db_HomeWorkSite.php");
 				$DateArray = explode("-",$Date);
 				if($i == $DateArray[2]){
 					if($row[2]==0){
-						echo"<a href='index.php?id=".$row[3]."To=Done'><span class='HomeWorkToDo'>".$row[0]."<br/></span></a>";
+						echo"<a href='index.php?id=".$row[3]."&To=Done'><span class='HomeWorkToDo'>".$row[0]."<br/></span></a>";
 					}else{
-						echo"<a href='index.php?id=".$row[3]."To=NotDone'<span class='HomeWorkDone'>".$row[0]."<br/></span></a>";
+						echo"<a href='index.php?id=".$row[3]."&To=NotDone'<span class='HomeWorkDone'>".$row[0]."<br/></span></a>";
 					}
 				}
 			}
