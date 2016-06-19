@@ -27,6 +27,12 @@ include("inc_db_HomeWorkSite.php");
 				$Valid++;
 			}
 			
+			if(!isset($_SESSION["LogIn"])){
+				echo "login first please<br/>";
+			}else{
+				$Valid++;
+			}
+			
 			if(!empty($_POST["HomeWorkToDo"])){
 				$HomeWorkToDo = stripslashes($_POST["HomeWorkToDo"]);
 				$HomeWorkToDo = trim($HomeWorkToDo);
@@ -34,8 +40,8 @@ include("inc_db_HomeWorkSite.php");
 			}else{
 				echo "Vul Alle velden in.<br/> ";
 			}
-			if($Valid == 2){
-				$Query = "INSERT INTO `homework`(`Datum`, `HomeWork`) VALUES('".$Datum."','".$HomeWorkToDo."')";
+			if($Valid == 3){
+				$Query = "INSERT INTO `homework`(`Datum`, `HomeWork`, `UserId`) VALUES('".$Datum."','".$HomeWorkToDo."','".$_SESSION["UserId"]."')";
 				$SubmitToServer = mysqli_query($DBConnect, $Query);
 				echo "done";
 				if(!$SubmitToServer){

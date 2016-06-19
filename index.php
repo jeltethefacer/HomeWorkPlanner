@@ -35,17 +35,19 @@ include("inc_db_HomeWorkSite.php");
 			echo "$i ". $MonthName."<br/>";
 			echo "</div>";
 			echo"<div class= 'HomeWork'>";
-			$query = "SELECT HomeWork, Datum, HomeWorkDone, ID FROM HomeWork";
+			$query = "SELECT HomeWork, Datum, HomeWorkDone, ID, UserId FROM HomeWork";
 			$hoer = mysqli_query($DBConnect, $query);
 			while($row = mysqli_fetch_array($hoer))
 			{
 				$Date = $row[1];
 				$DateArray = explode("-",$Date);
-				if($i == $DateArray[2]){
-					if($row[2]==0){
-						echo"<a href='index.php?id=".$row[3]."&To=Done'><span class='HomeWorkToDo'>".$row[0]."<br/></span></a>";
-					}else{
-						echo"<a href='index.php?id=".$row[3]."&To=NotDone'<span class='HomeWorkDone'>".$row[0]."<br/></span></a>";
+				if(isset($_SESSION["UserId"])){
+					if($i == $DateArray[2] && $row[4]== $_SESSION["UserId"]){
+						if($row[2]==0){
+							echo"<a href='index.php?id=".$row[3]."&To=Done'><span class='HomeWorkToDo'>".$row[0]."<br/></span></a>";
+						}else{
+							echo"<a href='index.php?id=".$row[3]."&To=NotDone'<span class='HomeWorkDone'>".$row[0]."<br/></span></a>";
+						}
 					}
 				}
 			}
