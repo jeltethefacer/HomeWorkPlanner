@@ -40,3 +40,10 @@ body {
     text-align: center;
     background-color: cornsilk;
 }
+
+.HomeWorkToDo{
+	color: red;	
+}
+.HomeWorkDone{
+	color:green;
+}

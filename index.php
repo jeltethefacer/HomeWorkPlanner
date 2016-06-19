@@ -27,14 +27,18 @@ include("inc_db_HomeWorkSite.php");
 			echo "$i ". $MonthName."<br/>";
 			echo "</div>";
 			echo"<div class= 'HomeWork'>";
-			$query = "SELECT HomeWork, Datum FROM HomeWork";
+			$query = "SELECT HomeWork, Datum, HomeWorkDone FROM HomeWork";
 			$hoer = mysqli_query($DBConnect, $query);
 			while($row = mysqli_fetch_array($hoer))
 			{
 				$Date = $row[1];
 				$DateArray = explode("-",$Date);
 				if($i == $DateArray[2]){
-					echo $row[0]." ";					
+					if($row[2]==0){
+						echo"<span class='HomeWorkToDo'>".$row[0]."<br/></span>";
+					}else{
+						echo"<span class='HomeWorkDone'>".$row[0]."<br/></span>";
+					}
 				}
 			}
 			echo"</div></div>";
