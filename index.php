@@ -7,10 +7,18 @@ include("inc_db_HomeWorkSite.php");
     <title>HomeWorkPlanner</title>
 	<meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="CSS/HomePage.css">
+	<?php
+		session_start();
+	?>
 </head>
 <body>
     <div id="header">
         <span class="TopLogo">HuiswerkPlanner.nl</span>
+		<span class="UserNameHeader">| <?php 
+			if(isset($_SESSION["LogIn"])){
+				echo $_SESSION["UserName"];
+			}
+		?></span>
     </div>
 
     <div id="HomeWorkInput">

@@ -42,7 +42,7 @@ include("inc_db_HomeWorkSite.php");
 			if($Valid == 2){
 				//when input is valid select corrosponding data and checks if input is right.
 				$LogInValid = 0;
-				$Query = "SELECT UserPass, UserName FROM siteuser Where UserName='".$UserName."'";
+				$Query = "SELECT UserPass, UserName, UserId, UserEmail FROM siteuser Where UserName='".$UserName."'";
 				if($GetUserName = mysqli_query($DBConnect, $Query)){
 					while($row = mysqli_fetch_array($GetUserName)){
 						$Response = true;
@@ -57,10 +57,16 @@ include("inc_db_HomeWorkSite.php");
 						}else{
 							echo "Gebruikersnaam incorrect.";
 						}
-					}
-					if($LogInValid==2){
-						echo"done";
-					}
+						if($LogInValid==2){
+							session_start();
+							$_SESSION["UserId"] = $row[2];
+							$_SESSION["UserEmail"] = $row[3];
+							$_SESSION["UserName"] = $row[0];
+							$_SESSION["LogIn"] = true;
+							header('Location: index.php');
+							die();
+						}
+					}					
 				}
 			}
 			// corrosponding if statement see begin php block
