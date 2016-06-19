@@ -27,7 +27,7 @@ include("inc_db_HomeWorkSite.php");
 			echo "$i ". $MonthName."<br/>";
 			echo "</div>";
 			echo"<div class= 'HomeWork'>";
-			$query = "SELECT HomeWork, Datum, HomeWorkDone FROM HomeWork";
+			$query = "SELECT HomeWork, Datum, HomeWorkDone, ID FROM HomeWork";
 			$hoer = mysqli_query($DBConnect, $query);
 			while($row = mysqli_fetch_array($hoer))
 			{
@@ -35,9 +35,9 @@ include("inc_db_HomeWorkSite.php");
 				$DateArray = explode("-",$Date);
 				if($i == $DateArray[2]){
 					if($row[2]==0){
-						echo"<span class='HomeWorkToDo'>".$row[0]."<br/></span>";
+						echo"<a href='index.php?id=".$row[3]."To=Done'><span class='HomeWorkToDo'>".$row[0]."<br/></span></a>";
 					}else{
-						echo"<span class='HomeWorkDone'>".$row[0]."<br/></span>";
+						echo"<a href='index.php?id=".$row[3]."To=NotDone'<span class='HomeWorkDone'>".$row[0]."<br/></span></a>";
 					}
 				}
 			}
@@ -46,4 +46,14 @@ include("inc_db_HomeWorkSite.php");
 	?>
     </div>
 </body>
+<?php
+	if($_SERVER["REQUEST_METHOD"] == "GET"){
+		if($_GET["To"]=="Done"){
+			$Query = "UPDATE homework set HomeWorkDone=1 where id='".$_GET["id"]."'";
+		}else{
+			$Query = "UPDATE homework set HomeWorkDone=0 where id='".$_GET["id"]."'";
+		}
+		$ChangeDoneSetting = mysqli_query($DBConnect, $Query);
+	}	
+?>
 </html>
