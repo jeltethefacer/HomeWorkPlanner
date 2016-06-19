@@ -14,7 +14,7 @@ include("inc_db_HomeWorkSite.php");
     </div>
 
     <div id="HomeWorkInput">
-        hello
+        <?php include("HomeWorkInput.php"); ?>
     </div>
     <div id="HomeWorkCalander">
 	<?php
