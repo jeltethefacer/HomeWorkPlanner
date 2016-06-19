@@ -1,0 +1,15 @@
+body {    
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#header {
+    background-color: cornsilk;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+}
+
+.TopLogo{
+    font-size: 2em;
+}
