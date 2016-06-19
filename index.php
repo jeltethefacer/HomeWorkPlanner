@@ -48,12 +48,14 @@ include("inc_db_HomeWorkSite.php");
 </body>
 <?php
 	if($_SERVER["REQUEST_METHOD"] == "GET"){
-		if($_GET["To"]=="Done"){
-			$Query = "UPDATE homework set HomeWorkDone=1 where id='".$_GET["id"]."'";
-		}else{
-			$Query = "UPDATE homework set HomeWorkDone=0 where id='".$_GET["id"]."'";
+		if(isset($_GET["To"])){
+			if($_GET["To"]=="Done"){
+				$Query = "UPDATE homework set HomeWorkDone=1 where id='".$_GET["id"]."'";
+			}else{
+				$Query = "UPDATE homework set HomeWorkDone=0 where id='".$_GET["id"]."'";
+			}
+			$ChangeDoneSetting = mysqli_query($DBConnect, $Query);
 		}
-		$ChangeDoneSetting = mysqli_query($DBConnect, $Query);
 	}	
 ?>
 </html>
