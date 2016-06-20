@@ -43,6 +43,11 @@ body {
 	overflow-y: scroll;
 }
 
+.CurrentMonth{
+	color: white;
+	text-align: center;
+}
+
 .Date{
     text-align: center;
     background-color: cornsilk;
