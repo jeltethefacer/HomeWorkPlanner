@@ -32,7 +32,11 @@ include("inc_db_HomeWorkSite.php");
 		
 		for($i=1;$i<=cal_days_in_month(CAL_GREGORIAN, $CurrentMonth, 2016); $i++){
 			echo "<div class='CalanderDay'><div class='Date'>";
-			echo "$i ". $MonthName."<br/>";
+			if($i== date("d") && date("m")== $CurrentMonth){
+				echo "<span style='color: red; font-weight: bold;'>$i ". $MonthName."<br/></span>";
+			}else{
+				echo "$i ". $MonthName."<br/>";
+			}
 			echo "</div>";
 			echo"<div class= 'HomeWork'>";
 			$query = "SELECT HomeWork, Datum, HomeWorkDone, ID, UserId FROM HomeWork";
