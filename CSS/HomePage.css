@@ -27,17 +27,20 @@ body {
 
 #HomeWorkCalander{
     float: left;
-    background-color: blue;
+    background-color: black;
     width: 70%;
     height: auto;
 }
 
 .CalanderDay{
-    border: 1px solid black; 
+    border-width: 5px;
+	border-style: outset;
+	margin: 3px;
     background-color: white;
     float: left;
     width: 150px;
     height: 150px;
+	overflow-y: scroll;
 }
 
 .Date{
