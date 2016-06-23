@@ -61,7 +61,7 @@ include("inc_db_HomeWorkSite.php");
 							session_start();
 							$_SESSION["UserId"] = $row[2];
 							$_SESSION["UserEmail"] = $row[3];
-							$_SESSION["UserName"] = $row[0];
+							$_SESSION["UserName"] = $row[1];
 							$_SESSION["LogIn"] = true;
 							header('Location: index.php');
 							die();

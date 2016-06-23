@@ -14,11 +14,17 @@ include("inc_db_HomeWorkSite.php");
 <body>
     <div id="header">
         <span class="TopLogo">HuiswerkPlanner.nl</span>
-		<span class="UserNameHeader">| <?php 
+		<div  class="UserNameHeader">| <?php 
 			if(isset($_SESSION["LogIn"])){
 				echo $_SESSION["UserName"];
+				echo "| <a href='logout.php'>LogOut</a>";
+				echo "</div>";
+			}else{
+				echo "<a href='LogIn.php'>LogIn</a>";
+				echo "|<a href='SignUp.php'>SignUp</a>";
+				echo "</div>";
 			}
-		?></span>
+		?>
     </div>
 
     <div id="HomeWorkInput">

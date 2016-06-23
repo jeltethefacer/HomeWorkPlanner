@@ -12,10 +12,19 @@ body {
 
 .TopLogo{
     font-size: 2em;
+	float: left;
 }
 
 .UserNameHeader{
 	font-size: 1.2em;
+	float: left;
+	margin-top: 10px;
+}
+
+#iemand{
+	font-size: 2em;
+	float:left;
+	margin-top: 10px;
 }
 
 #HomeWorkInput{
