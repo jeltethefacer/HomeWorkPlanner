@@ -17,7 +17,7 @@ include("inc_db_HomeWorkSite.php");
 		<div  class="UserNameHeader">| <?php 
 			if(isset($_SESSION["LogIn"])){
 				echo $_SESSION["UserName"];
-				echo "| <a href='logout.php'>LogOut</a>";
+				echo "| <a href='LogOut.php'>LogOut</a>";
 				echo "</div>";
 			}else{
 				echo "<a href='LogIn.php'>LogIn</a>";

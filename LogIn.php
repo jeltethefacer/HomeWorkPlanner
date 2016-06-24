@@ -13,7 +13,7 @@ include("inc_db_HomeWorkSite.php");
 		<span class="TopLogo">HuiswerkPlanner.nl</span>
     </div>
 
-<form action="login.php" method="POST">
+<form action="LogIn.php" method="POST">
 		UserName:<br>
 		<input type="text" name="UserName"><br>
 		Password:<br>
